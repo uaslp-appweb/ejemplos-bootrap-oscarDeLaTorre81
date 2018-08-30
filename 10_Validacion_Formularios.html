@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Validacion de formularios</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+                crossorigin="anonymous">
+
+</head>
+
+<body>
+        <div class="container mt-3">
+                <form action="" novalidate class="needs-validation" id="formulario">
+                        <div class="form-row form-group">
+                                <label for="" class="col-md-3">Usuario</label>
+                                <div class="col-md-9">
+                                        <input type="text" class="form-control" required>
+                                </div>
+                                <div class="invalid-feedback">
+                                        Debes escribir el nombre del usuario
+                                </div>
+                                <div class="valid-feedback">
+                                        Al menos 6 caracteres
+                                </div>
+                        </div>
+                        <div class="form-row form-group">
+                                <label for="" class="col-md-3">Contraseña</label>
+                                <div class="col-md-9">
+                                        <input type="password" class="form-control" required minlength="6">
+                                </div>
+                                <div class="invalid-feedback">
+                                        Al menos 6 caracteres
+                                </div>
+                        </div>
+                        <div class="form-row form-group">
+                                <div class="col-md-3 offset-md-3">
+                                        <input type="submit" class="form-control btn btn-primary">
+
+                                </div>
+                                <div class="col-md-6">
+                                        <a href="" class="btn col-md-3">Olvidaste Contraseña?</a>
+                                </div>
+
+                        </div>
+                </form>
+
+        </div>
+        <script>
+                
+                var formulario=document.getElementById("formulario");
+                formulario.addEventListener('submit',function(evento)
+                        {
+                                if(this.checkValidity()===false)
+                                {
+                                        evento.preventDefault();//Detener el evento para que no se envie al servidor
+                                        evento.stopPropagation();//detener la propagacion del evento a elementos padre
+                                }
+                                this.classList.add('was-validated');
+                        });
+        </script>
+</body>
+
+</html>
